@@ -743,6 +743,8 @@ struct ShadeResult;
 #define SH_NODE_COMBHSV					184
 #define SH_NODE_BSDF_HAIR				185
 #define SH_NODE_LAMP					186
+#define SH_NODE_UVBK 187
+
 
 /* custom defines options for Material node */
 #define SH_NODE_MAT_DIFF   1

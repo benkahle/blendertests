@@ -384,6 +384,13 @@ public:
 	float value;
 };
 
+class uvbkNode : public ShaderNode {
+public:
+	SHADER_NODE_CLASS(uvbkNode)
+
+	float value;
+};
+
 class ColorNode : public ShaderNode {
 public:
 	SHADER_NODE_CLASS(ColorNode)

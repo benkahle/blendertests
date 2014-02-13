@@ -142,6 +142,17 @@ static void node_buts_value(uiLayout *layout, bContext *UNUSED(C), PointerRNA *p
 	uiItemR(layout, &sockptr, "default_value", 0, "", ICON_NONE);
 }
 
+static void node_shader_buts_uvbk(uiLayout *layout, bContext *UNUSED(C), PointerRNA *ptr)
+{
+	bNode *node = ptr->data;
+	/* first output stores value */
+	bNodeSocket *output = node->outputs.first;
+	PointerRNA sockptr;
+	RNA_pointer_create(ptr->id.data, &RNA_NodeSocket, output, &sockptr);
+	
+	uiItemR(layout, &sockptr, "default_value", 0, "", ICON_NONE);
+}
+
 static void node_buts_rgb(uiLayout *layout, bContext *UNUSED(C), PointerRNA *ptr)
 {
 	bNode *node = ptr->data;
@@ -1092,6 +1103,9 @@ static void node_shader_set_butfunc(bNodeType *ntype)
 		case SH_NODE_SCRIPT:
 			ntype->draw_buttons = node_shader_buts_script;
 			ntype->draw_buttons_ex = node_shader_buts_script_ex;
+			break;
+		case SH_NODE_UVBK:
+			ntype->draw_buttons = node_shader_buts_uvbk;
 			break;
 	}
 }

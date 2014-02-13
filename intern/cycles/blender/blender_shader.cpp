@@ -206,6 +206,11 @@ static ShaderNode *add_node(Scene *scene, BL::BlendData b_data, BL::Scene b_scen
 		value->value = get_node_output_value(b_node, "Value");
 		node = value;
 	}
+	else if (b_node.is_a(&RNA_ShaderNodeUVBK)) {
+		uvbkNode *uvbk = new uvbkNode();
+		uvbk->value = get_node_output_value(b_node, "uvBK");
+		node = uvbk;
+	}
 	else if (b_node.is_a(&RNA_ShaderNodeCameraData)) {
 		node = new CameraNode();
 	}

@@ -2685,6 +2685,30 @@ void ValueNode::compile(OSLCompiler& compiler)
 	compiler.add(this, "node_value");
 }
 
+/* UVBK */
+
+uvbkNode::uvbkNode()
+: ShaderNode("uvbk")
+{
+	value = 0.0f;
+
+	add_output("uvBK", SHADER_SOCKET_FLOAT);
+}
+
+void uvbkNode::compile(SVMCompiler& compiler)
+{
+	ShaderOutput *val_out = output("uvBK");
+
+	compiler.stack_assign(val_out);
+	compiler.add_node(NODE_VALUE_F, __float_as_int(value), val_out->stack_offset);
+}
+
+void uvbkNode::compile(OSLCompiler& compiler)
+{
+	compiler.parameter("uvbk_value", value);
+	compiler.add(this, "node_value");
+}
+
 /* Color */
 
 ColorNode::ColorNode()

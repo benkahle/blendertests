@@ -127,6 +127,8 @@ set(SRC
 	nodes/COM_ColorNode.h
 	nodes/COM_ValueNode.cpp
 	nodes/COM_ValueNode.h
+	nodes/COM_uvbkNode.cpp
+	nodes/COM_uvbkNode.h
 	nodes/COM_TimeNode.cpp
 	nodes/COM_TimeNode.h
 	nodes/COM_SwitchNode.cpp
